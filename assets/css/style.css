@@ -13,7 +13,7 @@
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 /* line 3, /srv/nimbleweb/releases/20160818183625/app/assets/webpack/vendor-bundle.css */
 html {
-    font-family: sans-serif;
+    font-family: SofiaProSoftLight;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%; }
 
@@ -1412,7 +1412,7 @@ hr {
 
 /* line 5, /srv/nimbleweb/releases/20160818183625/app/assets/webpack/vendor-bundle.css */
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
-    font-family: inherit;
+    font-family: SofiaProSoftLight;
     font-weight: 500;
     line-height: 1.1;
     color: inherit; }

@@ -245,49 +245,6 @@ var screenArray = [
   'Finish Up'
 ]
 
-function detailedQATest(num, sec) {
-
-  if (num > 14) {
-    $('.TitleQATest .fa').removeClass('fa-spin').removeClass('fa-refresh').addClass('fa-times')
-    return;
-  }
-
-  if (num == 0)changeImage(-1);
-  var target = $($('.qastepsWrap').children()[num]);
-  var icon = target.find('i');
-  var time = sec ? 3000 : sec;
-  changeImage(num)
-  if (target.hasClass('normal')) {
-    target.removeClass('faded')
-    setTimeout(function () {
-      detailedQATest(num + 1, 8000)
-    }, 2000)
-  } else {
-    target.removeClass('faded')
-      .addClass('process')
-    icon.removeClass('invisible')
-    setTimeout(function () {
-      if (num == 9 || num == 10 || num == 13 || num == 14) {
-        target.addClass('failed')
-        icon
-          .removeClass('fa-refresh')
-          .removeClass('fa-spin')
-          .addClass('fa-times')
-        target.find('.reason').hide().removeClass('hide').fadeIn()
-      } else {
-        target.addClass('passed')
-        icon
-          .removeClass('fa-refresh')
-          .removeClass('fa-spin')
-          .addClass('fa-check')
-      }
-      setTimeout(function () {
-        detailedQATest(num + 1, 8000)
-      }, 1000)
-    }, time)
-  }
-}
-
 
 function changeImage(num) {
   switch (num) {
