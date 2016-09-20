@@ -200,8 +200,8 @@
             <div class="imageWrapSpiner"><i class="fa fa-refresh fa-spin"></i></div>
           </div>
 
-          <div class="row userFlorWrap" id="tr3">
-            <h6> and <a href="">1 more flows</a></h6>
+          <div class="row userFlorWrap" id="">
+            <h6> and <a href="">134 more flows</a></h6>
           </div>
 
         </div>
@@ -249,6 +249,65 @@
                 <div class="assert faded "><span class="iconforqa"><i
                   class="fa fa-refresh fa-spin invisible"></i></span> <h6>Subtotal is still $0</h6><span
                   class="hide reason">Subtotal is 69.90</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="roundContainer QATestCard" id="QATestCard2">
+          <div class="text-center">
+            <span class="TitleQATest "><i class="fa fa-refresh fa-spin"></i>2 QA Test - Add Product to Shopping Cart then Remove It</span>
+          </div>
+          <div class="">
+            <div class="row">
+              <div class="col-sm-11 paddingLeft30 qastepsWrap">
+                <div class="normal faded "><span class="iconforqa"><i class="fa fa-refresh fa-spin none"></i></span>
+                  <h6>Open app</h6></div>
+                <div class="normal faded "><span class="iconforqa"><i class="fa fa-refresh fa-spin none"></i></span>
+                  <h6>Click on product image</h6></div>
+                <div class="normal faded "><span class="iconforqa"><i class="fa fa-refresh fa-spin none"></i></span>
+                  <h6>Click on Add to Cart button</h6></div>
+                <div class="normal faded "><span class="iconforqa"><i class="fa fa-refresh fa-spin none"></i></span>
+                  <h6>Click on Shopping Cart icon</h6></div>
+                <div class="assert faded "><span class="iconforqa"><i
+                  class="fa fa-refresh fa-spin invisible"></i></span> <h6>Product name matches product that was
+                  added</h6></div>
+                <div class="assert faded "><span class="iconforqa"><i
+                  class="fa fa-refresh fa-spin invisible"></i></span> <h6>Quantity is 1</h6><span class="hide reason">Quantity was 2</span>
+                </div>
+                <div class="assert faded "><span class="iconforqa"><i
+                  class="fa fa-refresh fa-spin invisible"></i></span> <h6>Subtotal amount matches item price</h6></div>
+                <div class="normal faded "><span class="iconforqa"><i class="fa fa-refresh fa-spin none"></i></span>
+                  <h6>Click on Remove button for item</h6></div>
+                <div class="normal faded "><span class="iconforqa"><i class="fa fa-refresh fa-spin none"></i></span>
+                  <h6>Click on Confirm</h6></div>
+                <div class="assert faded "><span class="iconforqa"><i
+                  class="fa fa-refresh fa-spin invisible"></i></span> <h6>Item is gone from cart</h6><span
+                  class="hide reason">Item is in cart</span></div>
+                <div class="assert faded "><span class="iconforqa"><i
+                  class="fa fa-refresh fa-spin invisible"></i></span> <h6>Subtotal is $0</h6><span class="hide reason">Subtotal is 69.90</span>
+                </div>
+                <div class="normal faded "><span class="iconforqa"><i class="fa fa-refresh fa-spin none"></i></span>
+                  <h6>Click on Home icon</h6></div>
+                <div class="normal faded "><span class="iconforqa"><i class="fa fa-refresh fa-spin none"></i></span>
+                  <h6>Click on Shopping Cart icon</h6></div>
+                <div class="assert faded "><span class="iconforqa"><i
+                  class="fa fa-refresh fa-spin invisible"></i></span> <h6>Item is still gone from cart</h6><span
+                  class="hide reason">Item is in cart</span></div>
+                <div class="assert faded "><span class="iconforqa"><i
+                  class="fa fa-refresh fa-spin invisible"></i></span> <h6>Subtotal is still $0</h6><span
+                  class="hide reason">Subtotal is 69.90</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="roundContainer QATestCard" id="QATestCard3">
+          <div class="">
+            <div class="row">
+              <div class="col-sm-11 paddingLeft30 qastepsWrap">
+                <div class="normal faded "><span class="iconforqa"><i class="fa fa-refresh fa-spin none"></i></span>
+                  <h6> and <a href="">1 more flows</a></h6>
               </div>
             </div>
           </div>
@@ -497,8 +556,8 @@
         } else {
           clearInterval(flowIntervalNumber)
           $('#userFlowTitle').html('<i class="fa fa-check"></i>Identified User Flows')
-          $('.QATestCard').fadeIn()
-          scrollAnimateTo('.QATestCard')
+          $('#QATestCard').fadeIn()
+          scrollAnimateTo('#QATestCard')
           detailedQATest(0,400)
         }
       }, 100)
@@ -507,18 +566,34 @@
     }
   }
 
-
+  var cardNum = 1;
   function detailedQATest(num, sec) {
     if (num > 14) {
-      $('.TitleQATest .fa').removeClass('fa-spin').removeClass('fa-refresh').addClass('fa-times')
-      $('.pageResultCard').fadeIn()
-      scrollAnimateTo('.pageResultCard');
-      $('.app-profiling-status').html('<i class="fa fa-check"></i>Your app finished profiling!')
+      if(cardNum==1){
+        cardNum=2;
+        $('#QATestCard2').fadeIn()
+        scrollAnimateTo('#QATestCard2')
+        detailedQATest(0,400)
+      } else {
+        $('#QATestCard3').fadeIn()
+        scrollAnimateTo('#QATestCard2')
+        setTimeout(function () {
+          $('.TitleQATest .fa').removeClass('fa-spin').removeClass('fa-refresh').addClass('fa-times')
+          $('.pageResultCard').fadeIn()
+          scrollAnimateTo('.pageResultCard');
+          $('.app-profiling-status').html('<i class="fa fa-check"></i>Your app finished profiling!')
+        },1000)
+      }
       return;
     }
 
     if (num == 0)changeImage(-1);
-    var target = $($('.qastepsWrap').children()[num]);
+    var target
+    if(cardNum==2){
+      target = $($($('#QATestCard2').find('.qastepsWrap')).children()[num]);
+    } else {
+      target = $($($('#QATestCard').find('.qastepsWrap')).children()[num]);
+    }
     var icon = target.find('i');
     var time = sec ? 400 : sec;
     changeImage(num)

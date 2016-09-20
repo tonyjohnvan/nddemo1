@@ -426,7 +426,7 @@ a {
     padding-left: 30px;
 }
 
-#QATestCard .assert.passed {
+.QATestCard .assert.passed {
     min-height: 40px;
     background: #313131;
     background: #485a4a;
@@ -449,7 +449,7 @@ a {
     /*color: rgb(255, 255, 255) !important;*/
 }
 
-#QATestCard .assert.faded{
+.QATestCard .assert.faded{
     /*light version*/
     background: rgba(245, 245, 245, 0.6);
     color: rgba(0, 0, 0, 0.6);
@@ -458,8 +458,8 @@ a {
     margin: 5px 35% 5px 20px;
     font-family: SofiaProRegular;
 }
-#QATestCard .assert,
-#QATestCard .process {
+.QATestCard .assert,
+.QATestCard .process {
     background: #313131;
     border-radius: 8px;
     margin: 5px 35% 5px 20px;
@@ -473,7 +473,7 @@ a {
     font-family: SofiaProRegular;
 }
 
-#QATestCard .assert.failed {
+.QATestCard .assert.failed {
     min-height: 40px;
     color: #ff696a;
     background: #6b3939;
@@ -496,7 +496,7 @@ a {
     /*background: #ef6465;*/
 }
 
-#QATestCard .failed .reason{
+.QATestCard .failed .reason{
     display: block;
     color: #aba5a5;
     font-size: 11px;
@@ -518,7 +518,7 @@ a {
     /*color: #ffd3d3;*/
 }
 
-#QATestCard {
+.QATestCard {
     /*background: #383838;*/
     /*color: #efefef;*/
     /*border-top: 1px solid #636363;*/
@@ -529,7 +529,7 @@ a {
     padding: 25px 20px 35px;
     font-family: SofiaProRegular;
 }
-#QATestCard .TitleQATest{
+.QATestCard .TitleQATest{
     /*color: #fefefe;*/
 }
 
