@@ -465,7 +465,7 @@
         scrollAnimateTo('.flowDetectionCard')
         runUserFlow(0)
       }
-    }, 300);
+    }, 600);
   }
 
   function runUserFlow(num) {
@@ -483,7 +483,7 @@
           $(target).find('.fa').removeClass('fa-refresh').removeClass('fa-spin').addClass('fa-check')
           runUserFlow(++num);
         }
-      }, 1000)
+      }, 500)
     } else if (num == 2) {
       var target = $('.userFlorWrap')[num]
       $(target).fadeIn()
