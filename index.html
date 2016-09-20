@@ -117,6 +117,10 @@
     </div>
     <div class="row">
       <div class="col-md-5 text-center fixedPos">
+        <div class="deviceTitle">
+          <h5>NimbleDroid Auto QA</h5>
+          <p>All tests auto-generated and maintained automatically</p>
+        </div>
         <div class="androidBG">
           <div class="screens"></div>
         </div>
@@ -430,9 +434,9 @@
           $('.screenDetectionCard').fadeIn()
           scrollAnimateTo('.screenDetectionCard')
           screenRun2()
-        }, 1000)
-      }, 1000)
-    }, 2000)
+        }, 500)
+      }, 500)
+    }, 1000)
   })
 
   function checkScroll() {
@@ -461,7 +465,7 @@
         scrollAnimateTo('.flowDetectionCard')
         runUserFlow(0)
       }
-    }, randomSec(1));
+    }, 300);
   }
 
   function runUserFlow(num) {
@@ -479,7 +483,7 @@
           $(target).find('.fa').removeClass('fa-refresh').removeClass('fa-spin').addClass('fa-check')
           runUserFlow(++num);
         }
-      }, 2000)
+      }, 1000)
     } else if (num == 2) {
       var target = $('.userFlorWrap')[num]
       $(target).fadeIn()
@@ -492,9 +496,9 @@
           $('#userFlowTitle').html('<i class="fa fa-check"></i>Identified User Flows')
           $('.QATestCard').fadeIn()
           scrollAnimateTo('.QATestCard')
-          detailedQATest(0,2000)
+          detailedQATest(0,1000)
         }
-      }, 1000)
+      }, 100)
     } else {
       // NOTHING...
     }
@@ -513,13 +517,13 @@
     if (num == 0)changeImage(-1);
     var target = $($('.qastepsWrap').children()[num]);
     var icon = target.find('i');
-    var time = sec ? 3000 : sec;
+    var time = sec ? 1000 : sec;
     changeImage(num)
     if (target.hasClass('normal')) {
       target.removeClass('faded')
       setTimeout(function () {
-        detailedQATest(num + 1, 8000)
-      }, 2000)
+        detailedQATest(num + 1, 1000)
+      }, 1000)
     } else {
       target.removeClass('faded')
         .addClass('process')
@@ -540,7 +544,7 @@
             .addClass('fa-check')
         }
         setTimeout(function () {
-          detailedQATest(num + 1, 8000)
+          detailedQATest(num + 1, 1000)
         }, 1000)
       }, time)
     }

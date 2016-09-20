@@ -381,7 +381,7 @@ a {
 }
 
 .statusDecoration.passed h6 {
-    text-decoration: line-through;
+    /*text-decoration: line-through;*/
     color: rgba(139, 195, 74, 0.88);
 }
 
@@ -551,4 +551,16 @@ a {
 
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
     font-family: SofiaProSoftLight;
+}
+
+.deviceTitle{
+    background: white;
+    position: relative;
+    border-radius: 8px;
+    width: 250px;
+    margin: 200px auto -100px;
+    padding: 10px 10px;
+}
+.deviceTitle p{
+    font-size: 12px;
 }
