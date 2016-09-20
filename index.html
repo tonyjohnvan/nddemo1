@@ -365,6 +365,9 @@
             </div>
           </div>
         </div>
+        <div class="col-md-12 text-center">
+          <a href="#" class="btn btn-nd nextPageBtn" onclick="location.reload();">Return</a>
+        </div>
       </div>
     </div>
   </div>
@@ -496,7 +499,7 @@
           $('#userFlowTitle').html('<i class="fa fa-check"></i>Identified User Flows')
           $('.QATestCard').fadeIn()
           scrollAnimateTo('.QATestCard')
-          detailedQATest(0,1000)
+          detailedQATest(0,400)
         }
       }, 100)
     } else {
@@ -517,13 +520,13 @@
     if (num == 0)changeImage(-1);
     var target = $($('.qastepsWrap').children()[num]);
     var icon = target.find('i');
-    var time = sec ? 1000 : sec;
+    var time = sec ? 400 : sec;
     changeImage(num)
     if (target.hasClass('normal')) {
       target.removeClass('faded')
       setTimeout(function () {
-        detailedQATest(num + 1, 1000)
-      }, 1000)
+        detailedQATest(num + 1, 400)
+      }, 400)
     } else {
       target.removeClass('faded')
         .addClass('process')
@@ -544,8 +547,8 @@
             .addClass('fa-check')
         }
         setTimeout(function () {
-          detailedQATest(num + 1, 1000)
-        }, 1000)
+          detailedQATest(num + 1, 400)
+        }, 400)
       }, time)
     }
   }
